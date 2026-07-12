@@ -10,6 +10,18 @@
 
 <div class="corazones"></div>
 
+<div class="carta-icono" onclick="abrirCarta()" title="Abrir carta">💌</div>
+
+<div class="carta-overlay" id="cartaOverlay" onclick="cerrarCartaFuera(event)">
+    <div class="carta-papel">
+        <span class="carta-cerrar" onclick="cerrarCarta()">✕</span>
+        <p>
+            No fue la mejor manera, cuidate mucho
+        </p>
+        <p class="carta-firma">Att: Piero</p>
+    </div>
+</div>
+
 <div class="contenedor">
     <h1>❤️ Feliz Primer Mes y dos días ❤️</h1>
 
@@ -36,6 +48,20 @@
 
     function sorpresa(){
     document.getElementById("mensajeSorpresa").style.display = "block";
+}
+
+function abrirCarta(){
+    document.getElementById("cartaOverlay").classList.add("activa");
+}
+
+function cerrarCarta(){
+    document.getElementById("cartaOverlay").classList.remove("activa");
+}
+
+function cerrarCartaFuera(evento){
+    if(evento.target.id === "cartaOverlay"){
+        cerrarCarta();
+    }
 }
 
 // Contador congelado: desde el 25 de enero 2026 18:27 hasta el 10 de julio 2026 1:47 pm

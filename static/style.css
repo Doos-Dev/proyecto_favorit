@@ -98,3 +98,100 @@ h1{
 .btn-amor:hover::before{
     left:120%;
 }
+
+/* ÍCONO DE CARTA FLOTANTE */
+
+.carta-icono{
+    position:fixed;
+    top:30px;
+    right:40px;
+    font-size:48px;
+    cursor:pointer;
+    z-index:10;
+    animation: flotarCarta 3s ease-in-out infinite;
+    filter:drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    transition:transform 0.3s;
+}
+
+.carta-icono:hover{
+    transform:scale(1.2);
+}
+
+@keyframes flotarCarta{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* OVERLAY DE LA CARTA */
+
+.carta-overlay{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:20;
+    justify-content:center;
+    align-items:center;
+}
+
+.carta-overlay.activa{
+    display:flex;
+}
+
+.carta-papel{
+    position:relative;
+    background:rgba(255,255,255,0.95);
+    color:#333;
+    max-width:450px;
+    width:85%;
+    padding:40px 35px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    animation: abrirse 0.5s ease;
+    font-family:'Segoe UI', sans-serif;
+}
+
+.carta-papel h2{
+    color:#ff4b6e;
+    margin-top:0;
+}
+
+.carta-papel p{
+    line-height:1.8;
+    font-size:19px;
+    font-family:'Georgia', 'Segoe UI', serif;
+    color:#5a4a4a;
+    letter-spacing:0.3px;
+    margin:20px 0;
+}
+
+.carta-firma{
+    margin-top:20px;
+    font-weight:bold;
+    font-family:'Georgia', 'Segoe UI', serif;
+    font-size:17px;
+    color:#ff758c;
+    letter-spacing:0.3px;
+}
+
+.carta-cerrar{
+    position:absolute;
+    top:12px;
+    right:18px;
+    cursor:pointer;
+    font-size:20px;
+    color:#999;
+}
+
+.carta-cerrar:hover{
+    color:#ff4b6e;
+}
+
+@keyframes abrirse{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
