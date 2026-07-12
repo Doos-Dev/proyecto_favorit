@@ -11,6 +11,7 @@ body{
 }
 
 .contenedor{
+    position:relative;
     text-align:center;
     background: rgba(255,255,255,0.15);
     padding:40px;
@@ -102,24 +103,31 @@ h1{
 /* ÍCONO DE CARTA FLOTANTE */
 
 .carta-icono{
-    position:fixed;
-    top:30px;
-    right:40px;
-    font-size:48px;
+    position:absolute;
+    top:-14px;
+    right:-14px;
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
     cursor:pointer;
     z-index:10;
-    animation: flotarCarta 3s ease-in-out infinite;
-    filter:drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    background:linear-gradient(45deg,#ff4b6e,#ff758c);
+    border-radius:50%;
+    box-shadow:0 4px 12px rgba(0,0,0,0.35), 0 0 0 3px rgba(255,255,255,0.6);
+    animation: pulsarCarta 2s ease-in-out infinite;
     transition:transform 0.3s;
 }
 
 .carta-icono:hover{
-    transform:scale(1.2);
+    transform:scale(1.15);
 }
 
-@keyframes flotarCarta{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
+@keyframes pulsarCarta{
+    0%,100%{box-shadow:0 4px 12px rgba(0,0,0,0.35), 0 0 0 3px rgba(255,255,255,0.6);}
+    50%{box-shadow:0 4px 16px rgba(0,0,0,0.45), 0 0 0 6px rgba(255,255,255,0.35);}
 }
 
 /* OVERLAY DE LA CARTA */
