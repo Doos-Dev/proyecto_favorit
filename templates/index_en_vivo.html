@@ -38,12 +38,17 @@
     document.getElementById("mensajeSorpresa").style.display = "block";
 }
 
-// Contador congelado: desde el 25 de enero 2026 18:27 hasta el 10 de julio 2026 1:47 pm
+const fechaInicio = new Date("January 25, 2026 18:27:00").getTime();
+
 function actualizarContador() {
-    const dias = 165;
-    const horas = 19;
-    const minutos = 20;
-    const segundos = 0;
+
+    const ahora = new Date().getTime();
+    const diferencia = ahora - fechaInicio;
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
     document.getElementById("contador").innerHTML =
         dias + " días " +
@@ -52,7 +57,7 @@ function actualizarContador() {
         segundos + " segundos ❤️";
 }
 
-actualizarContador();
+setInterval(actualizarContador, 1000);
 
 </script>
 
